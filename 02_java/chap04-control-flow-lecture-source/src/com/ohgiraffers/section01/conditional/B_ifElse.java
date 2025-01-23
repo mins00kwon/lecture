@@ -21,5 +21,24 @@ public class B_ifElse {
     }
 
 
-
+    public void testNestedIfElseStatement() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the first number");
+        int input = sc.nextInt();
+        if(input>=0){
+            if(input %2==0){
+                System.out.println("양수이면서 짝수입니다");
+            }
+            else {
+                System.out.println("양수이면서 홀수입니다");
+            }
+        }else {
+            if(input %2==0){
+                System.out.println("음수이면서 짝수입니다");
+            }
+            else {
+                System.out.println("음수이면서 홀수입니다");
+            }
+        }
+    }
 }

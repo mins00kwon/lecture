@@ -17,6 +17,14 @@ public class Application {
         aClass.testNestedIfStatement();
 
         B_ifElse bClass=new B_ifElse();
+        /* 설명: 단독 if-else문 흐름 확인용 메소드 호출*/
+        bClass.testSimpleIfElseStatement();
+
+        /* 설명: 중첩 if-else문 흐름 확인용 메소드 호출*/
+        bClass.testNestedIfElseStatement();
+
+        C_ifElseIf cClass=new C_ifElseIf();
+
     }
 
 }

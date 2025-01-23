@@ -11,20 +11,22 @@ public class Application {
         A_if aClass=new A_if();
 
         /* 설명: 단독 if문 흐름 확인용 메소드 호출*/
-        aClass.testSimpleIfStatement();
+//        aClass.testSimpleIfStatement();
 
         /* 설명: 중첩 if문 흐름 확인용 메소드 호출*/
-        aClass.testNestedIfStatement();
+//        aClass.testNestedIfStatement();
 
         B_ifElse bClass=new B_ifElse();
         /* 설명: 단독 if-else문 흐름 확인용 메소드 호출*/
-        bClass.testSimpleIfElseStatement();
+//        bClass.testSimpleIfElseStatement();
 
         /* 설명: 중첩 if-else문 흐름 확인용 메소드 호출*/
-        bClass.testNestedIfElseStatement();
+//        bClass.testNestedIfElseStatement();
 
         C_ifElseIf cClass=new C_ifElseIf();
+//        cClass.testSimpleIfElseIfStatement();
 
+        cClass.testNestedIfElseIfStatement();
     }
 
 }

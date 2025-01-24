@@ -15,5 +15,6 @@ public class Monster {
     }
 
     public void setName(String 조윤태) {
+
     }
 }

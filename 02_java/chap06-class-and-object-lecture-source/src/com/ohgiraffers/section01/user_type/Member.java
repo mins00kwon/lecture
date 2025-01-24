@@ -11,4 +11,11 @@ public class Member {
     int age;
     char gender;
     String[] hobbies;
+
+    public static void printMember(Member member) {
+        System.out.println("member.name = " + member.name);
+        System.out.println("member.age = " + member.age);
+        System.out.println("member.id = " + member.id);
+
+    }
 }

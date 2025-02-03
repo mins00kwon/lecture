@@ -6,6 +6,11 @@ public class ParameterTest {
         System.out.println("매개변수로 전달받아 수정한 값: " + num);
     }
 
+    public void testClassTypeParamter(Rectangle rectangle) {
+        rectangle.calArea();
+        rectangle.calRound();
+    }
+
     public void testPrimitiveTypeParameter(int[] iArr) {
         for (int i = 0; i < iArr.length; i++) {
             iArr[i] *= 10;

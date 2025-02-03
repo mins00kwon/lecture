@@ -24,5 +24,13 @@ public class Application {
         pt.testPrimitiveTypeParameter(iArr);
         System.out.println("Call by Value 후: " + Arrays.toString(iArr));
 
+        /* 목차: 3. 클래스 자료형을 매개변수로 전달 받는 메소드 호출 */
+        Rectangle r = new Rectangle(22, 12);
+//        r.calArea();
+//        r.calRound();
+        pt.testClassTypeParamter(r);
+
+        /* 목차: 4. 객체 배열은 배우지 않았으므로 뒤에서 다시 나올 예정 */
+        /* 목차: 5. 가변인자를 매개변수로 전달 받는 메소드 호출 (자바는 왠만하면 사용을 권장하지 않음) */
     }
 }

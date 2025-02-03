@@ -32,6 +32,16 @@ public class UserDTO {
         this.enrollDate = enrollDate;
     }
 
+    @Override
+    public String toString() {
+        return "UserDTO{" +
+                "id='" + id + '\'' +
+                ", pwd='" + pwd + '\'' +
+                ", name='" + name + '\'' +
+                ", enrollDate=" + enrollDate +
+                '}';
+    }
+
     public String getId() {
         return id;
     }

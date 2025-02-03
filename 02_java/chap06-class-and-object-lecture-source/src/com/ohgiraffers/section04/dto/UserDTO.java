@@ -1,5 +1,14 @@
 package com.ohgiraffers.section04.dto;
 
+import java.util.Date;
+
+/* 설명: 자바빈 작성 규칙
+ *   1. 자바빈은 특정 패키지에 속해 있어야 함(default 패키지 사용 금지)
+ *   2. 필드의 접근 제어자는 private으로 선언해야 함(캡슐화 적용)
+ *   3. 기본 생성자가 명시적으로 존재해야 한다(매개변수 있는 생성자는 선택사항)
+ *   4. 모든 필드에 접근 가능한 설정자(setter) 와 접근자 (getter) 가 public 으로 작성되어 있어야 함
+ *   5. 직렬화(Serializable 구현) 을 고려해야 한다. (선택사항)*/
+
 public class UserDTO {
 
     /* 설명: 자바빈(Java Bean) 이란?
@@ -11,4 +20,47 @@ public class UserDTO {
     private String pwd;
     private String name;
     private java.util.Date enrollDate;
+
+    public UserDTO() {
+
+    }
+
+    public UserDTO(String id, String pwd, String name, Date enrollDate) {
+        this.id = id;
+        this.pwd = pwd;
+        this.name = name;
+        this.enrollDate = enrollDate;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Date getEnrollDate() {
+        return enrollDate;
+    }
+
+    public void setEnrollDate(Date enrollDate) {
+        this.enrollDate = enrollDate;
+    }
 }

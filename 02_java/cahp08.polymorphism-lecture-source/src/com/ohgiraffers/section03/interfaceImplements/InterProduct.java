@@ -19,6 +19,7 @@ public interface InterProduct extends ParentInterProduct,AnotherParentInterProdu
     public default void method() {}         // 함수에 default...? 뭐였더라...?
 
     /* 설명: 접근 제어자가 private인 메소드는 메소드의 바디부까지 작성이 가능하다(default 없이도)*/
-//    private void privateMethod() {} //질문: 왜 안됨?
+    private void privateMethod() {} //질문: 왜 안됨?
+
     /* 설명: 바디부가 있다는건 규약이 아니라는 것*/
 }

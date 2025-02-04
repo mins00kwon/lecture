@@ -38,6 +38,10 @@ public class Application1 {
         ani2.cry();
         ani3.cry();
 
+        System.out.println("==========");
+        ((Tiger)ani1).bite();
+        System.out.println("==========");
+
         /* 설명: 부모 타입을 강제로 자식 타입으로 형변환 하는 것이 가능은 하다
         *   단 굉장히 조심해야 한다
         *       조심해라: instanceOf로 한번 걸러줘라*/

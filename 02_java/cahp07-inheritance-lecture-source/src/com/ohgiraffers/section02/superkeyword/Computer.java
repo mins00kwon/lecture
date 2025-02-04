@@ -8,6 +8,7 @@ public class Computer extends Product {
     private int ram;
     private String operatingSystem;
 
+    // region Constructors
     public Computer() {
     }
 
@@ -26,6 +27,9 @@ public class Computer extends Product {
         this.operatingSystem = operatingSystem;
         this.ram = ram;
     }
+    // endregion
+
+    // region Getter and Setter
 
     public String getCpu() {
         return cpu;
@@ -58,6 +62,8 @@ public class Computer extends Product {
     public void setRam(int ram) {
         this.ram = ram;
     }
+
+    // endregion
 
     @Override
     public String toString() {

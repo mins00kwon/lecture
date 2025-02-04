@@ -9,6 +9,8 @@ public class Product {
     private int price;
     private java.util.Date manufactureDate;
 
+    // region Constructors
+
     public Product() {
     }
 
@@ -19,6 +21,9 @@ public class Product {
         this.name = name;
         this.price = price;
     }
+    // endregion
+
+    // region Getter and Setter
 
     public String getBrand() {
         return brand;
@@ -59,6 +64,9 @@ public class Product {
     public void setPrice(int price) {
         this.price = price;
     }
+
+    // endregion
+
 
     @Override
     public String toString() {

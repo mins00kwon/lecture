@@ -30,4 +30,14 @@ public class SubClass extends SuperClass {
     /* 설명: 부모 메소드가 final 이라면 오버라이딩 불가능*/
 //    @Override
 //    public void finalMethod(){}
+
+    /* 설명: 다른 패키지더라도 protected를 썼으면 상속관계이므로 오버라이딩 성립*/
+    /* 설명: 더 큰 범위로 접근 제어자를 바꾸는건 성립*/
+//    @Override
+//    public void protectedMethod() {}
+
+    /* 설명: default 메소드는 다른 패키지가 되면 오버라이딩 불가능*/
+//    @Override
+//    void defaultMethod() {}
+
 }

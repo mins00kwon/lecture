@@ -22,6 +22,7 @@ public class Application {
                     manager.signUpMembers();
                     break;
                 case 2:
+                    manager.showAllMembers();
                     break;
                 case 9:
                     System.out.println("프로그램을 종료합니다");

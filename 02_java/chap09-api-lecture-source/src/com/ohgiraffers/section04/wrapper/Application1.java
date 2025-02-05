@@ -21,7 +21,7 @@ public class Application1 {
         int autoUnboxedInt2= boxInteger2.intValue();
 
 
-        anythingMethod(20);
+
         /* 설명: int 는 primitive 타입이므로 Object를 상속하지 않으나
         *   anythingMethod 로 전달 될 때는 autoBoxing 되어
         *   Object 를 상속받은 Integer 자료형으로 전달되기에 문제 없이 실행됨 */
@@ -35,6 +35,8 @@ public class Application1 {
 
         /* 설명: 모든 Wrapper 클래스들도 constant pool 을 활용해 동등 객체는 하나만*동일 인스턴스로) 저장한다*/
         System.out.println("System.identityHashCode(intgerTest2) = " + System.identityHashCode(intgerTest2));
+
+        anythingMethod(20);
     }
 
     private static void anythingMethod(Object object) {

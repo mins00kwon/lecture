@@ -59,6 +59,8 @@ public class Application1 {
         /* 목차: isEmpty() */
         System.out.println("\"\".isEmpty() = " + "".isEmpty());
         System.out.println("abc.isEmpty() = " + "abc".isEmpty());
-
+        String a="abc";
+        String b=new String("abc");
+        System.out.println("a.equals(b) = " + a.equals(b));
     }
 }

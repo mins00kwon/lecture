@@ -6,7 +6,7 @@ public class Application1 {
         StringBuilder sb=new StringBuilder("Java");
 
         String testStr="java";
-        StringBuilder testSb=new StringBuilder("kotlin");
+        StringBuilder testSb=new StringBuilder();
 
         for(int i=0;i<9;i++){
             System.out.println(i);
@@ -19,5 +19,6 @@ public class Application1 {
         }
         System.out.println("testStr = " + testStr);
         System.out.println("testSb = " + testSb);
+        System.out.println(testSb);
     }
 }

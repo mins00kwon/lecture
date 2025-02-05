@@ -11,12 +11,13 @@ public class Application2 {
     *   2. new String("") 형태: 매번 새로운 인스턴스를 생성한다. 주소값이 매번 다름
     *   */
     String str1="java";
+//    String str2="java";
 
     String str3=new String("java");
     String str4=new String("java");
 
     System.out.println("str1==str2 = " + (str1==str2));
-    System.out.println("str1==str2 = " + (str2==str3));
+    System.out.println("str2==str3 = " + (str1==str3));
     System.out.println("str3==str4 = " + (str3==str4));
 
     /* 설명: 문자열은 불변객체(immutable object) 로 변화를 주면 학상 새로운 객체(인스턴스)가 생성된다*/

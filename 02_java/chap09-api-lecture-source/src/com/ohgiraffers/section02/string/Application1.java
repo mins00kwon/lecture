@@ -13,7 +13,7 @@ public class Application1 {
 
         /* 목차: 2. compareTo() */
         String str2 = "java";
-        String str3 = "java";
+        String str3 = "jAva";
         String str4 = "JAVA";
         String str5 = "mariaDB";
         System.out.println(str2.compareTo(str3));
@@ -22,6 +22,7 @@ public class Application1 {
         System.out.println(str2.compareTo(str5));
         System.out.println(str5.compareTo(str2));
         // 일치하지 않는 첫 글자 기준으로 연산
+        //글자수가 다르면 -1 or 1 리턴
         
         /* 목차: 3. concat() */
         System.out.println("str2.concat(str4) = " + str2.concat(str4));
@@ -29,6 +30,7 @@ public class Application1 {
         /* 목차: 4. indexOf() */
         String indexOf="java mariaDB";
         System.out.println("indexOf.indexOf('a') = " + indexOf.indexOf('a'));
+        System.out.println("indexOf.indexOf(\"av\") = " + indexOf.indexOf("av")); // 오버로딩
 
         /* 목차: 5. trim() */
         String trimStr = "       java       ";

@@ -1,6 +1,6 @@
 package com.ohgiraffers.section01.exception;
 
-public class Application {
+public class ExceptionBasic {
     public static void main(String[] args) throws Exception {
 
         /* 목표: 예외에 대해 이해하고 이를 처리하기 위한 문법을 활용할 수 있다*/

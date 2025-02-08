@@ -3,7 +3,7 @@ package com.ohgiraffers.section02.string;
 public class Application2 {
     static String str2="java";
     public static void main(String[] args) {
-    /* 목표: 문자열 객체를 생성하는 다양한 방법읈 숙지하고 인스턴스가 생성되는 방식을 이해할 수 있다*/
+    /* 목표: 문자열 객체를 생성하는 다양한 방법을 숙지하고 인스턴스가 생성되는 방식을 이해할 수 있다*/
     /* 설명: 문자열 객체를 만드는 방법
     *   1. "" 리터럴 형태: 동일한 값을 가지는 인스턴스(동등(e,h))를 단일 인스턴스로 관리한다
     *       (constant pool(=상수풀) 에서 활용. 일종의 singleton 개념

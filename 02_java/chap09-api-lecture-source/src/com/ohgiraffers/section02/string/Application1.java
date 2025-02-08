@@ -3,7 +3,7 @@ package com.ohgiraffers.section02.string;
 public class Application1 {
     public static void main(String[] args) {
 
-        /* 목표: String 클래스의 자주 사용하는 메소드에 대해 숙지하고 으용할 수 있다*/
+        /* 목표: String 클래스의 자주 사용하는 메소드에 대해 숙지하고 응용할 수 있다*/
         /* 목차: charAt() */
         String str1 = "apple";
 

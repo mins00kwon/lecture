@@ -7,8 +7,8 @@ public class Application1 {
 
         /* 설명: 기본자료형을 Wrapper 클래스 자료형으로 변환할 수 있다
         *   이를 박싱(boxing) 이라고 한다*/
-        Integer boxInteger = 20;
-        Integer boxInteger2 = Integer.valueOf(intValue);
+        Integer boxInteger = 20;                            // 오토 박싱
+        Integer boxInteger2 = Integer.valueOf(intValue);    // 박싱
 
         // 질문 이건 왜 다 true 임?
         System.out.println("(intValue==boxInteger) = " + (intValue == boxInteger));
@@ -18,7 +18,7 @@ public class Application1 {
         /* 설명: Wrapper 클래스 자료형을 기본자료형으로 변환할 수 있다
         *   이를 언박싱이라고 한다*/
         int autoUnboxedInt= boxInteger;                 // 오토 언박싱
-        int autoUnboxedInt2= boxInteger2.intValue();
+        int autoUnboxedInt2= boxInteger2.intValue();    // 언박싱
 
 
 

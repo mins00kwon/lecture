@@ -1,0 +1,5 @@
+Hello FileInputStream!
+This is Second Line of your file!
+Good Bye!
+
+

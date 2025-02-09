@@ -6,27 +6,27 @@ import java.io.IOException;
 
 public class Application3 {
     public static void main(String[] args) {
-        /* 목표: FileReader를 이해하고 활용할 수 있다*/
-        FileReader fr=null;
+
+        /* 수업목표. FileReader를 이해하고 활용할 수 있다. */
+        FileReader fr = null;
         try {
-            fr=new FileReader("src/main/java/com/ohgiraffers/section02/stream/testReader.txt");
-//            fr.read();
-//            System.out.println((char)fr.read());
+            fr = new FileReader(
+                    "src/main/java/com/ohgiraffers/section02/stream/testReader.txt");
+//            int readChar = fr.read();
+//            System.out.println((char) readChar);
 
-            int readChar=0;
-            while((readChar=fr.read())!=-1) {
-                System.out.print((char)readChar);
+            int readChar = 0;
+            while((readChar = fr.read()) != -1 ) {
+                System.out.println((char) readChar);
             }
-
-
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         } finally {
-            try{
-                if(fr!=null)fr.close();
-            }catch(Exception e){
+            try {
+                if(fr != null) fr.close();
+            } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }

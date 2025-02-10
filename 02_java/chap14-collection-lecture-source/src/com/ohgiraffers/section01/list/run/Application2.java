@@ -17,7 +17,10 @@ public class Application2 {
         bookList.add(new BookDTO(4, "삼국사기", "김부식", 46000));
         bookList.add(new BookDTO(5, "삼국유사", "일연", 58000));
 
-        Collections.sort(bookList, new AscendingPrice());
+//        Collections.sort(bookList, new AscendingPrice());
+
+        // List 계열도 sort 메소드를 쓸 수 있는데 Comparator를 구현한 클래스의 객체만 넘겨주면 된다
+        bookList.sort(new AscendingPrice());
         for (BookDTO book : bookList) {
             System.out.println(book);
         }

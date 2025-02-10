@@ -36,11 +36,17 @@ public class Application5 {
         Queue<String> que=new PriorityQueue<String>();
         // 내림 차순 정렬을 위해서는 생성자 안에 Collections.reverseOrder() 를 넣으면 된다
         /*Queue<String> que=new PriorityQueue<String>(Collections.reverseOrder());*/
-        que.offer("first");
-        que.offer("second");
-        que.offer("third");
-        que.offer("fourth");
-        que.offer("fifth");
+        
+        /* 설명: 입력과 동시에 정렬되는게 아니라 출려될 떄 정렬되는 것
+        *   poll()로 인해 출력이 된다고 해도 자료형 전체가 정렬되어 저장되는 것은 아님*/
+        
+        que.offer("f");
+        que.offer("a");
+        que.offer("c");
+        que.offer("d");
+        que.offer("b");
         System.out.println("queue = " + que);
+        System.out.println("que.poll() = " + que.poll());
+        System.out.println("que = " + que);
     }
 }

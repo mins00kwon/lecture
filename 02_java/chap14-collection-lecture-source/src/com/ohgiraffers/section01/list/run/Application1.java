@@ -2,6 +2,9 @@ package com.ohgiraffers.section01.list.run;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Application1 {
@@ -57,6 +60,7 @@ public class Application1 {
         System.out.println(Arrays.toString(arr));
         arr=insertArr(arr,5,100);
         System.out.println(Arrays.toString(arr));
+        studySort();
     }
     public static int[] insertArr(int[] arr,int index, int value){
         int[] resultArr=new int[arr.length+1];
@@ -68,5 +72,41 @@ public class Application1 {
             resultArr[i+1]=arr[i];
         }
         return resultArr;
+    }
+    public static void studySort(){
+        /* 설명: ArrayList를 활용한 정렬
+         * 목차: 1. 문자열 데이터 정렬(feat. 오름차순) */
+        List<String> stringList=new ArrayList<>();
+        stringList.add("apple");
+        stringList.add("banana");
+        stringList.add("mango");
+        stringList.add("grapes");
+        System.out.println("stringList = " + stringList);
+
+        /* 설명: 실제로는 ArrayList 안에 있는 데이터인 String에 정의된 기준(오름차순)대로 정렬 됨*/
+        Collections.sort(stringList);
+        System.out.println("stringList = " + stringList);
+    }
+    public static void studyIterator(){
+        /* 목차: 1-1. 문자열 데이터 내림차순 정렬 */
+        /* 설명: 내림차순 할 때는 LinkedList로 변경
+        *   다루는 Iterator 와 해당 컬렉션의 제네릭 타입은 꼭 명시하자
+        *       이유: 다운캐스팅 방지(타입 안정성)
+        *           질문: 이게 머선 소리고*/
+        List<String> stringList=new LinkedList<>();
+        // region
+        stringList.add("apple");
+        stringList.add("apple");
+        stringList.add("banana");
+        stringList.add("mango");
+        stringList.add("grapes");
+        // endregion
+        // List에는 없는 기능이기 떄문에 굳이 LinkedList로 형변환 함
+        Iterator<String> iter=((LinkedList<String>)stringList).descendingIterator();
+        // 작동 방식을 StringTokenizer랑 유사함
+        // 반복문을 쓸 수 없음
+        while(iter.hasNext()){
+            System.out.println(iter.next());
+        }
     }
 }

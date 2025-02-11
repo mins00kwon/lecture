@@ -10,4 +10,10 @@ public enum Subjects {
     Subjects(){
         System.out.println("기본 생성자 실행됨...");
     }
+
+
+    @Override
+    public String toString() {
+        return "@@@"+this.name()+"@@@";
+    }
 }

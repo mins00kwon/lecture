@@ -16,7 +16,7 @@ public class Application1 {
         List list=new ArrayList();           // 다형성 기능이 적용됨
 
         /* 설명: 데이터를 넣은 순서를 기억한다*/
-        /* 설명: 갑 넣기*/
+        /* 설명: 값 넣기*/
         list.add("apple");
         list.add(123);
         list.add(45.67);
@@ -94,7 +94,7 @@ public class Application1 {
         *       이유: 다운캐스팅 방지(타입 안정성)
         *           질문: 이게 머선 소리고*/
         List<String> stringList=new LinkedList<>();
-        // region
+        // region 값 대입
         stringList.add("apple");
         stringList.add("apple");
         stringList.add("banana");

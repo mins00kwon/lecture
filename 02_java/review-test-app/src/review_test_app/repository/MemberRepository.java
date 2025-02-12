@@ -1,4 +1,4 @@
-package com.ohgiraffers.section04.review_test_app.repository;
+package review_test_app.repository;
 
 import com.ohgiraffers.section04.review_test_app.aggregate.AccountStatus;
 import com.ohgiraffers.section04.review_test_app.aggregate.BloodType;

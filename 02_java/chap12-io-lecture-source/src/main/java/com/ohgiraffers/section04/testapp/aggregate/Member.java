@@ -1,4 +1,5 @@
 package com.ohgiraffers.section04.testapp.aggregate;
+///
 
 import java.io.Serializable;
 import java.util.Arrays;
@@ -15,7 +16,16 @@ public class Member implements Serializable {
     public Member() {
     }
 
-    public Member(int memNo, String id, String pwd, int age, String[] hobbies, BloodType bloodType, AccountStatus accountStatus) {
+    public Member(String id, String pwd, int age, String[] hobbies, BloodType bloodType) {
+        this.id = id;
+        this.pwd = pwd;
+        this.age = age;
+        this.hobbies = hobbies;
+        this.bloodType = bloodType;
+    }
+
+    public Member(int memNo, String id, String pwd, int age, String[] hobbies, BloodType bloodType,
+                  AccountStatus accountStatus) {
         this.memNo = memNo;
         this.id = id;
         this.pwd = pwd;

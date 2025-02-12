@@ -1,5 +1,6 @@
-package com.ohgiraffers.section04.review_test_app.run;
+package review_test_app.run;
 
+import com.ohgiraffers.section04.review_test_app.aggregate.Member;
 import com.ohgiraffers.section04.review_test_app.service.MemberService;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -23,6 +24,7 @@ public class Application {
                     ms.findMemberBy();
                     break;
                 case 3:
+//                    ms.register(signUp());
                     break;
                 case 4:
                     break;
@@ -35,6 +37,11 @@ public class Application {
                     System.out.println("잘못된 입력입니다");
             }
         }
+    }
+
+    private static Member signUp() {
+
+        return null;
     }
 
     private static void printSelectMenu() {

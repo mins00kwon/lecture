@@ -1,4 +1,4 @@
-package com.ohgiraffers.section04.review_test_app.aggregate;
+package review_test_app.aggregate;
 
 import java.io.Serializable;
 import java.util.Arrays;
@@ -26,6 +26,18 @@ public class Member implements Serializable {
         this.hobbies = hobbies;
         this.bloodType = bloodType;
         this.accountStatus = accountStatus;
+    }
+
+    public Member(String id, String pwd, int age, String[] hobbies, BloodType bloodType) {
+        this.id = id;
+        this.pwd = pwd;
+        this.age = age;
+        this.hobbies = hobbies;
+        this.bloodType = bloodType;
+    }
+
+    public Member(String id, String pwd, int age, String[] hobbies,
+                  com.ohgiraffers.section04.testapp.aggregate.BloodType bt) {
     }
 
     // endregion

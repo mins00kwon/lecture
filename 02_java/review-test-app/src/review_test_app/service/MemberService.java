@@ -1,4 +1,4 @@
-package com.ohgiraffers.section04.review_test_app.service;
+package review_test_app.service;
 
 
 import com.ohgiraffers.section04.review_test_app.aggregate.Member;

@@ -3,8 +3,16 @@ package com.ohgiraffers.section04.testapp.repository;
 import com.ohgiraffers.section04.testapp.aggregate.AccountStatus;
 import com.ohgiraffers.section04.testapp.aggregate.BloodType;
 import com.ohgiraffers.section04.testapp.aggregate.Member;
-
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 /* 설명. 데이터베이스 개념(Member 관련 파일)과 입출력(CRUD)을 위해 만들어지며
@@ -42,7 +50,7 @@ public class MemberRepository {
                 )
         )) {
             while (true) {
-                memberList.add((Member)ois.readObject());
+                memberList.add((Member) ois.readObject());
             }
 
         } catch (EOFException e) {
@@ -74,7 +82,9 @@ public class MemberRepository {
             throw new RuntimeException(e);
         } finally {
             try {
-                if(oos != null) oos.close();
+                if (oos != null) {
+                    oos.close();
+                }
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -95,5 +105,12 @@ public class MemberRepository {
         }
 
         return returnMember;
+    }
+
+    public int selectLastMemberNo() {
+        Member lastMember = memberList.get(memberList.size() - 1);
+        return lastMember.getMemNo();
+
+        설명
     }
 }

@@ -53,20 +53,23 @@ public class MemberService {
     public Member findMemberForMod(int memeNo) {
         Member selectedMember = mr.selectMemberBy(memeNo);
         // 조회 성공시 실행 구문
-        if (selectedMember != null) {                                                 // service 계층의 의미가 없어짐
+        if (selectedMember != null) {
+            System.out.println("findMemberForMod: " + selectedMember + "조회 성공");
+            // service 계층의 의미가 없어짐
             /* 설명: 조회된 회원을 그대로 변환해서 수정하면 Repository의 컬렉션에 담긴 객체가 수정된다 (Call by Reference)
              *   따라서 우리는 사본을 만들어 Repository의 컬렉션이 오염되지 않도록 한다*/
-            Member newInstance = new Member(selectedMember);
-//            Member newInstance = new Member();
-//            newInstance.setMemNo(selectedMember.getMemNo());
-//            newInstance.setId(selectedMember.getId());
-//            newInstance.setPwd(selectedMember.getPwd());
-//            newInstance.setAge(selectedMember.getAge());
-//
-//            String[] copiedHobbies = selectedMember.getHobbies().clone();
-//            newInstance.setHobbies(copiedHobbies);
-//            newInstance.setBloodType(selectedMember.getBloodType());
-//            newInstance.setAccountStatus(selectedMember.getAccountStatus());
+//            Member newInstance = new Member(selectedMember);
+            Member newInstance = new Member();
+            newInstance.setMemNo(selectedMember.getMemNo());
+            newInstance.setId(selectedMember.getId());
+            newInstance.setPwd(selectedMember.getPwd());
+            newInstance.setAge(selectedMember.getAge());
+
+            String[] copiedHobbies = selectedMember.getHobbies().clone();
+            newInstance.setHobbies(copiedHobbies);
+            newInstance.setBloodType(selectedMember.getBloodType());
+            newInstance.setAccountStatus(selectedMember.getAccountStatus());
+            System.out.println("카피 객체 생성 성공" + newInstance);
             return newInstance;
         }
         // 조회 실패시 실행 구문
@@ -74,5 +77,14 @@ public class MemberService {
             System.out.println("회원 조회에 실패하였습니다. 회원 번호를 확인해주세요.");
         }
         return null;
+    }
+
+    public void modifyMember(Member reformedMember) {
+        int result = mr.updateMember(reformedMember);
+        System.out.println((result == 1) ? "정보룰 수정했습니다" : "정보 수정에 실패하였습니다.");
+    }
+
+    public void removeMember(int removeMemNo) {
+        System.out.println((mr.hardDeleteMember(removeMemNo)) == 1 ? removeMemNo + "번 회원 탈퇴 성공" : "회원 탈퇴 실패");
     }
 }

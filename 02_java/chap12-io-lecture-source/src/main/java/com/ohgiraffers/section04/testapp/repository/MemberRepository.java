@@ -148,4 +148,46 @@ public class MemberRepository {
 
         return result;
     }
+
+    /* 설명: 수정된 사본이 넘어오면 컬렉션에 담긴 동일한 회원을 찾아서 컬렉션 update
+     *   + 컬렉션의 회원 정보로 파일을 덮어씌움*/
+    public int updateMember(Member reformedMember) {
+        int result = 0;
+
+        // 컬렉션에 담긴 동일한 회원을 찾아서
+        for (int i = 0; i < memberList.size(); i++) {
+            if (memberList.get(i).getMemNo() == reformedMember.getMemNo()) {
+                // 컬렉션 update
+                memberList.set(i, reformedMember);
+                // 컬렉션의 회원 정보로 파일을 덮어씌움
+                saveMembers(memberList);
+                result = 1;
+            }
+        }
+        return result;
+    }
+
+    public int hardDeleteMember(int removeMemNo) {
+        int result = 0;
+        for (int i = 0; i < memberList.size(); i++) {
+            if (memberList.get(i).getMemNo() == removeMemNo) {
+                memberList.remove(i);
+                saveMembers(memberList);
+                return 1;
+            }
+        }
+        return result;
+    }
+
+    public int softDeleteMember(int removeMemNo) {
+        int result = 0;
+        for (Member member : memberList) {
+            if (member.getMemNo() == removeMemNo) {
+                member.setAccountStatus(AccountStatus.DEACTIVATED);
+                result = 1;
+                saveMembers(memberList);
+            }
+        }
+        return result;
+    }
 }

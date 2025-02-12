@@ -3,6 +3,7 @@ package com.ohgiraffers.section04.testapp.repository;
 import com.ohgiraffers.section04.testapp.aggregate.AccountStatus;
 import com.ohgiraffers.section04.testapp.aggregate.BloodType;
 import com.ohgiraffers.section04.testapp.aggregate.Member;
+import com.ohgiraffers.section04.testapp.stream.MyObjectOutput;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.EOFException;
@@ -27,6 +28,7 @@ public class MemberRepository {
     /* 설명. 프로그램 구동시 MemberRepository 생성자가 호출되며 초기에 실행할 내용들 */
     public MemberRepository() {
 
+        // 파일이 존재하지 않으면 배열에 더미데이터를 담은 후 더미데이터가 담긴 파일을 생성(저장)
         if (!file.exists()) {
             ArrayList<Member> defaultMembers = new ArrayList<>();
             defaultMembers.add(new Member(1, "user01", "pass01", 20,
@@ -38,7 +40,6 @@ public class MemberRepository {
 
             saveMembers(defaultMembers);
         }
-
         loadMembers();
     }
 
@@ -70,9 +71,7 @@ public class MemberRepository {
         try {
             oos = new ObjectOutputStream(
                     new BufferedOutputStream(
-                            new FileOutputStream(file)
-                    )
-            );
+                            new FileOutputStream(file)));
 
             for (Member member : inputMembers) {
                 oos.writeObject(member);
@@ -110,7 +109,43 @@ public class MemberRepository {
     public int selectLastMemberNo() {
         Member lastMember = memberList.get(memberList.size() - 1);
         return lastMember.getMemNo();
+    }
 
-        설명
+    public int insertMember(Member member) {
+
+        /* 설명. 헤더가 추가되지 않는 ObjectOutputStream 클래스 정의(MyObjectOutputStream) */
+        MyObjectOutput moo = null;
+        int result = 0;
+
+        try {
+            moo = new MyObjectOutput(
+                    new BufferedOutputStream(
+                            new FileOutputStream(file, true)
+                    )
+            );
+            /* 설명: 파일로 신규회원 추가하기*/
+            moo.writeObject(member);
+
+            /* 설명: 컬렉션에도 신규회원 추가하기*/
+            // 싱크를 맞췄다고 이해하면 될 듯
+            /* 설명: MyObjectOutputStream으로 이어붙인 정보는
+             *   다시 입력 받아도 이전 파일로 인식하기 때문에
+             *   프로그램을 꼈다 켜지 않는 인상 재인식 되지 않음.*/
+            memberList.add(member);
+            // insert가 성공한 경우 1을 리턴함
+            result = 1;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                if (moo != null) {
+                    moo.close();
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        return result;
     }
 }

@@ -1,11 +1,8 @@
 package com.ohgiraffers.section04.testapp.run;
 
-import com.ohgiraffers.section04.review_test_app.aggregate.Member;
 import com.ohgiraffers.section04.testapp.aggregate.BloodType;
+import com.ohgiraffers.section04.testapp.aggregate.Member;
 import com.ohgiraffers.section04.testapp.service.MemberService;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class Application {
@@ -34,9 +31,10 @@ public class Application {
                     ms.findMemberBy(chooseMemNo());
                     break;
                 case 3:
-                    ms.register(signUp());
+                    ms.registMember(signUp());
                     break;
                 case 4:
+                    Member selected = ms.findMemberForMod(chooseMemNo());
                     break;
                 case 5:
                     break;
@@ -49,35 +47,34 @@ public class Application {
         }
     }
 
-    private static Member signUp() throws IOException {
+    private static Member signUp() {
         Member member = null;
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        Scanner sc = new Scanner(System.in);
         System.out.print("아이디를 입력하세요: ");
-        String id = br.readLine();
-        System.out.println();
+        String id = sc.nextLine();
 
         System.out.print("패스워드를 입력하세요: ");
-        String pwd = br.readLine();
-        System.out.println();
+        String pwd = sc.nextLine();
 
-        System.out.print("나이를 입력하세요");
-        int age = Integer.parseInt(br.readLine());
-        System.out.println();
+        System.out.print("나이를 입력하세요: ");
+        int age = sc.nextInt();
 
         System.out.print("입력할 취미의 갯수를 입력하세요(숫자는 1 이상): ");
-        int len = Integer.parseInt(br.readLine());
-        System.out.println();
-        String[] hobbies = new String[len];
-        for (int i = 0; i < len; i++) {
-            System.out.print(i + 1 + "번째 취미를 입력하세요: ");
-            hobbies[i] = br.readLine();
-            System.out.println();
+        int length = sc.nextInt();
+        sc.nextLine();      // 버퍼에 남은 엔터 제거용
+
+        String[] hobbies = new String[length];
+        for (int i = 0; i < hobbies.length; i++) {
+            System.out.print((i + 1) + "번째 취미를 입력하세요: ");
+            String input = sc.nextLine();
+            hobbies[i] = input;
         }
 
         System.out.print("혈액형을 입력하세요(A, AB, B, O): ");
+        String bloodType = sc.nextLine().toUpperCase();
         BloodType bt = null;
-        String bloodTypeInput = br.readLine().toUpperCase();
-        switch (bloodTypeInput) {
+        switch (bloodType) {
             case "A":
                 bt = BloodType.A;
                 break;
@@ -90,12 +87,10 @@ public class Application {
             case "O":
                 bt = BloodType.O;
                 break;
-
         }
 
-        System.out.println();
-
         member = new Member(id, pwd, age, hobbies, bt);
+
         return member;
     }
 

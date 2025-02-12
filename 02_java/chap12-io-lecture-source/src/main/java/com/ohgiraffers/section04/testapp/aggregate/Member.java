@@ -1,5 +1,4 @@
 package com.ohgiraffers.section04.testapp.aggregate;
-///
 
 import java.io.Serializable;
 import java.util.Arrays;
@@ -13,9 +12,21 @@ public class Member implements Serializable {
     private BloodType bloodType;           // 혈액형
     private AccountStatus accountStatus;   // 활성화여부
 
+
     public Member() {
     }
 
+    public Member(Member member) {
+        this.memNo = member.getMemNo();
+        this.id = member.getId();
+        this.pwd = member.getPwd();
+        this.age = member.getAge();
+        this.hobbies = member.getHobbies().clone();
+        this.bloodType = member.getBloodType();
+        this.accountStatus = member.getAccountStatus();
+    }
+
+    /* 설명. 회원가입 시 입력받은 5개의 값으로 초기화하는 생성자 */
     public Member(String id, String pwd, int age, String[] hobbies, BloodType bloodType) {
         this.id = id;
         this.pwd = pwd;

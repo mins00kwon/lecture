@@ -47,7 +47,7 @@ public class Application {
         *   2. 구현하는 메소드의 바디부분에서 실행 구문이 하나일 경우 중괄호를 생략할 수 있다
         *   3. 실행될 마지막 구문이 리터럴 형태로 끝나고 추상메소드에 반환형이 있을 경우 return 생략 가능*/
 
-        /* 필기: 메소드 이름을 없앰
+        /* 필기: 메소드 이
         *   메소드가 한개밖에 없으니까 메소드 이름이 필요하지 않음(인터페이스 이름으로만으로도 특정됨) */
 //        Calculator cal3=(int first, int second)->{return first+second;};  /* 필기: 정석 */
 //        Calculator cal3=( first,  second)->{return first+second;};  /* 필기: 매개변수의 타입 생략 가능 */

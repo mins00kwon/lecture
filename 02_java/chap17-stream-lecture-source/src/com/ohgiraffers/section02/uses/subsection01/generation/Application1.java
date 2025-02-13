@@ -27,6 +27,29 @@ public class Application1 {
         /* 필기: forEach를 돌리고 싶은데 stream에만 쓸 수 있으니 Arrays.strea(sArr)을 해준다고 생각 */
         Arrays.stream(sArr).forEach(System.out::println);
 
+        System.out.println();
+
+        /* 설명: Stream으로 관리되는 요소들을 원하는 갯수만큼 반복할 수 있다*/
+        /* 필기: 반복? 이 맞나? */
+        Stream<String> strStream2=Arrays.stream(sArr,0,2);
+        strStream2.forEach(System.out::println);
+
+        /* 설명: Builder를 활용한 스트림 생성
+        *   Builder는 static<T>로 되어 있는 메소드이며, 호출 시 타입 파라미터를 메소드 호출 방식으로 전달한다
+        * */
+        System.out.println("==== Builder로 스트림 생성 ====");
+                                                /* 필기: <String>을 붙이는 위치가 특이함 */
+        Stream<String> builderStream=Stream.<String>builder()
+                                                    .add("홍길동")
+                                                    .add("유관순")
+                                                    .add("윤봉길")
+                                                    .build();
+        /* 필기: 결국 빌더로 스트림을 만든다는 얘기. build() 쓰는건 특이하네.
+            생각해보니 StringBuilder 객체만 썼지 builder() 는 처음 보네 */
+
+        /* 필기: 굳이 따로 있는건 builder()를 굳이 써야하는 경우가 있다는건데...
+        *   미리 만들어놓은 StringBuilder 객체를 쓴다던가 */
+        builderStream.forEach(System.out::println);
 
     }
 }

@@ -10,7 +10,8 @@ public class Application3 {
         /* 필기: 이게 무슨 코드임....?? */
         List<Integer> integerList =IntStream.of(5,10,99,1,2,35)
                 .boxed()
-                .sorted()
+                .sorted(new DescInteger())      /* 필기: 사용자 정의 정렬 기준 적용 */
                 .collect(Collectors.toList());
+        System.out.println(integerList);
     }
 }

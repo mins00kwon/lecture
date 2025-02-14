@@ -34,7 +34,7 @@ public class Application1 {
         consumer.accept("hello");
     }
 
-    private static void studyByConsumer() {
+    private static void studBiyConsumer() {
         BiConsumer<String, LocalTime> biConsumer=
                 (str, time)-> System.out.println(str+"(이)가 "+time+"에 입력됨");
         biConsumer.accept("Hello", LocalTime.now());

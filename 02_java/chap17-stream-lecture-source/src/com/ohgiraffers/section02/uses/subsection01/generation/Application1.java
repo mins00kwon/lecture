@@ -48,7 +48,7 @@ public class Application1 {
             생각해보니 StringBuilder 객체만 썼지 builder() 는 처음 보네 */
 
         /* 필기: 굳이 따로 있는건 builder()를 굳이 써야하는 경우가 있다는건데...
-        *   미리 만들어놓은 StringBuilder 객체를 쓴다던가 */
+        *   미리 만들어놓은 StringBuilder 객체를 쓴다던가  */
         builderStream.forEach(System.out::println);
 
     }

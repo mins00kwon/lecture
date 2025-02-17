@@ -22,6 +22,7 @@ public class Application1 {
         System.out.println("max = " + max);
         OptionalInt min = IntStream.range(1,10).min();
         System.out.println("min = " + min);
+        int a = max.getAsInt();
 
         int oddSum=IntStream.range(1,10).filter(i -> i%2!=0).sum();
         System.out.println("oddSum = " + oddSum);

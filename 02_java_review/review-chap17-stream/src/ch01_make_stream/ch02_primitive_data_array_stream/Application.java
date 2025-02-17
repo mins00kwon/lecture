@@ -8,6 +8,7 @@ public class Application {
     public static void main(String[] args) {
         int[] intArray = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         IntStream intStream=Arrays.stream(intArray);
-        intStream.forEach(i->System.out.print(i+" "));
+        Stream<Integer> stream=intStream.boxed();
+        stream.forEach(s->System.out.print(s+" "));
     }
 }

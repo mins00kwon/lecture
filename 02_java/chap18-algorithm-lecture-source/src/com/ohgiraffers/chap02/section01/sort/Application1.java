@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
+import java.util.stream.IntStream;
 
 /* 목표: 버블 정렬을 이해할 수 있다*/
 /* 설명: 정렬 알고리즘
@@ -36,6 +37,12 @@ public class Application1 {
          * */
         BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
         int n= Integer.parseInt(br.readLine());
+
+        /* 설명: Stream 활용한 Input*/
+        IntStream intStream = Arrays.stream(br.readLine().split(" "))
+                .mapToInt(Integer::parseInt);
+        int[] arr2=intStream.toArray();
+
         int[] arr=new int[n];
         StringTokenizer st=new StringTokenizer(br.readLine());
         for(int i=0;i<n;i++){

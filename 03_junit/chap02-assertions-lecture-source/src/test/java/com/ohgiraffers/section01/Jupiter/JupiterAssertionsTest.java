@@ -80,6 +80,20 @@ public class JupiterAssertionsTest {
     @Test
     @DisplayName("void 메소드를 테스트 하는 경우 어떤 exception이 발생하는지 테스트")
     void testAssertThrows(){
+        int firstNum=10;
+        int secondNum=0;
+        String expectedMessage = "0으로 나눌 수 없습니다";
 
+        NumberValidator validator=new NumberValidator();
+        Exception exception=Assertions.assertThrows(
+                Exception.class,
+                ()->validator.checkDividableNumbers(firstNum,secondNum)
+        );
+        Assertions.assertAll(
+                ()->Assertions.assertInstanceOf(IllegalArgumentException.class,exception,
+                        ()->"예외 타입이 일치하지 않음"),
+                ()->Assertions.assertEquals(expectedMessage,exception.getMessage(),
+                        ()->"예외 메시지가 일치하지 않음")
+        );
     }
 }

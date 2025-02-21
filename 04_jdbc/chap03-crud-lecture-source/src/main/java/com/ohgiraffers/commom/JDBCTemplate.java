@@ -11,6 +11,22 @@ import java.util.Properties;
 
 public class JDBCTemplate {
 
+    public static void rollback(Connection con) {
+        try {
+            if(con!=null)con.rollback();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void commit(Connection con) {
+        try {
+            if(con!=null)con.commit();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static void close(Statement stmt) {
         try{
             if(stmt!=null)stmt.close();

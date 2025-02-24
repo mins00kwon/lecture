@@ -24,4 +24,16 @@ public class MenuService {
         }
         close(con);
     }
+
+    public void modifyMenu(com.ohgiraffers.section02.update.Menu menu) {
+        Connection con=getConnection();
+        MenuRepository repository = new MenuRepository();
+        int result=repository.updateMenu(con,menu);
+        if(result==1){      // 이 조건은 상황에 맞게 수정
+            commit(con);
+        }else{
+            rollback(con);
+        }
+        close(con);
+    }
 }

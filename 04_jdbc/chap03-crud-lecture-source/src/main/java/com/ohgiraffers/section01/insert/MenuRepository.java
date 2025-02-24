@@ -34,4 +34,27 @@ public class MenuRepository {
         }
         return result;
     }
+
+    public int updateMenu(Connection con, com.ohgiraffers.section02.update.Menu menu) {
+        PreparedStatement preparedStatement = null;
+        int result = 0;
+        Properties prop=new Properties();
+        try {
+            prop.loadFromXML(
+                    new FileInputStream("src/main/java/com/ohgiraffers/section01/insert/mapper/menu-mapper.xml")
+            );
+            String query=prop.getProperty("updateMenu");
+            preparedStatement=con.prepareStatement(query);
+            preparedStatement.setString(1, menu.getMenuName());
+            preparedStatement.setInt(2,menu.getMenuPrice());
+            preparedStatement.setInt(3,menu.getMenuCode());
+            result=preparedStatement.executeUpdate();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
+    }
 }

@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Enumeration;
 
 @WebServlet("/showErrorPage")
@@ -17,7 +18,27 @@ public class ExceptionHandlerServlet extends HttpServlet {
             System.out.println(attrNames.nextElement());
         }
         int statusCode= (int) req.getAttribute("jakarta.servlet.error.status_code");
+        String message = (String) req.getAttribute("jakarta.servlet.error.message");
+        String servletName = (String) req.getAttribute("jakarta.servlet.error.servlet_name");
         System.out.println("statusCode = " + statusCode);
+        System.out.println("message = " + message);
+        System.out.println("servletName = " + servletName);
+        /* 설명: 위의 재료들을 바탕으로 동적인 에러 페이지 생성 및 응답*/
+        StringBuilder sb=new StringBuilder();
+        sb.append("<h1>")
+                .append(statusCode)
+                .append("-").append(message)
+                .append("</h1>")
+                .append("<br>\n")
+                .append("<p>에러 발생한 서블릿 명: ")
+                .append(servletName)
+                .append("</p>");
+        resp.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = resp.getWriter();
+        out.println(sb.toString());
+        out.flush();
+        out.close();
+
     }
 
 }

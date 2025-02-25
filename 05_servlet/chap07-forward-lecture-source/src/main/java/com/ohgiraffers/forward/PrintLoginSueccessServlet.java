@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet("/print")
 public class PrintLoginSueccessServlet extends HttpServlet {
@@ -18,10 +19,14 @@ public class PrintLoginSueccessServlet extends HttpServlet {
         System.out.println("userId = " + userId);
         System.out.println("password = " + password);
         System.out.println("username = " + username);
-
+        resp.setContentType("text/html;charset=UTF-8");
         StringBuilder sb=new StringBuilder();
         sb.append("<h3>")
-                .append()
-
+                .append(username)
+                .append("님 환영합니다").append("</h3>");
+        PrintWriter out=resp.getWriter();
+        out.println(sb.toString());
+        out.flush();
+        out.close();
     }
 }

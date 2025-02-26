@@ -1,4 +1,4 @@
-package com.ohgiraffers.filter;
+package com.ohgiraffers.section01.filter;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

@@ -1,4 +1,4 @@
-package com.ohgiraffers.chap10sessionlecturesource;
+package com.ohgiraffers.section01.session;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

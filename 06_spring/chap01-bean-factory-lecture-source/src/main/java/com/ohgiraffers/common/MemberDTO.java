@@ -18,11 +18,11 @@ public class MemberDTO {
     private String pwd;
     private String name;
 
-    public MemberDTO(int s, String id, String s2, String id1) {
+    public MemberDTO(int s, String id, String s2, String name) {
         this.sequence = s;
         this.id = id;
         this.pwd = s2;
-        this.name = id1;
+        this.name = name;
     }
 
     public int getSequence() {

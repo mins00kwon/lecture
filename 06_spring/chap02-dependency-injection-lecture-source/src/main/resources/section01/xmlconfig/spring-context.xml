@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+      http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--1. 생성자 주입-->
+    <bean id="account" class="com.ohgiraffers.commom.PersonalAccount">
+        <constructor-arg index="0" value="20"/>
+        <constructor-arg index="1" value="3333-04-0875514"/>
+    </bean>
+
+    <!--<bean id="member" class="com.ohgiraffers.commom.MemberDTO">
+        <constructor-arg name="sequence" value="1"/>
+        <constructor-arg name="name" value="홍길동"></constructor-arg>
+        <constructor-arg name="email" value="kdhong@naver.com"></constructor-arg>
+        <constructor-arg name="phone" value="8210"/>
+        <constructor-arg name="personalAccount" ref="account"/>
+    </bean>-->
+
+    <!--2. 세터 주입-->
+    <bean id="member" class="com.ohgiraffers.commom.MemberDTO">
+        <property name="sequence" value="1"></property>
+        <property name="name" value="홍길동"></property>
+        <property name="phone" value="010-1234-5678"></property>
+        <property name="email" value="hong@google.com"></property>
+        <property name="personalAccount" ref="account"></property>
+    </bean>
+</beans>

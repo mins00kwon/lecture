@@ -1,8 +1,7 @@
-package com.ohgiraffers.section01.autowired.subsection01.field;
+package com.ohgiraffers.section01.field.subsection01.field;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
 
 public class Application {
     public static void main(String[] args) {

@@ -1,7 +1,9 @@
 package com.ohgiraffers.common;
 
+import jakarta.inject.Scope;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.context.annotation.Bean;
 
 public class ShoppingCart {
     private final List<Product> items;

@@ -6,6 +6,7 @@ import com.ohgiraffers.common.Product;
 import com.ohgiraffers.common.ShoppingCart;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 @Configuration
 public class ContextConfiguration {
@@ -22,6 +23,9 @@ public class ContextConfiguration {
         return new Beverage("지리산암반수",3000,1500);
     }
     @Bean
+    /* 설명: 여기서 보이지는 않지만 @Scope("singleton") 이 적용되어 있는 것*/
+    /* 설명: Bean Scope를 수정하게 되면 bean 객체의 life cycle을 다른 주기로 설정 가능*/
+    @Scope("prototype")
     public ShoppingCart cart(){
         return new ShoppingCart();
     }

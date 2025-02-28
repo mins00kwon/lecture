@@ -29,7 +29,13 @@ public class Application {
         System.out.println(cart1.getItems());// toString을 오버라이딩하면 forEach 안써도 됨.
         
         /* 설명: 두 번째 손님이 입장해서 쇼핑카트를 꺼내 물건을 담는다*/
+
         ShoppingCart cart2=context.getBean("cart",ShoppingCart.class);
         System.out.println("cart2 = " + cart2);
+
+        /* 설명: 빈은 기본적으로 Singleton 임*/
+        System.out.println("cart1==cart2 ? : " + (cart1==cart2));
+        cart2.addItem(water);
+        cart2.getItems().forEach(System.out::println);
     }
 }

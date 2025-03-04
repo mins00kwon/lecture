@@ -28,7 +28,7 @@ public class Application {
         System.out.println("===두 번째 손님의 카트===");
         cart2.getItems().forEach(System.out::println);
 
-        /* 설명: main 메소드 종료 전에 Container를 제거(bean 제거 강제화)*/
+        /* 설명: main 메소드 종료 전에 Container를 제w거(bean 제거 강제화)*/
         ((AnnotationConfigApplicationContext)context).close();
     }
 }

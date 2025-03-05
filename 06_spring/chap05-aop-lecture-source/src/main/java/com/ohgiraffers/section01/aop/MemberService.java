@@ -19,4 +19,8 @@ public class MemberService {
         return memberDAO.selectAllMembers();
     }
 
+    public MemberDTO findMemberBy(long index) {
+        System.out.println("taget -> findMemberBy 실행됨");
+        return memberDAO.selectMemberBy(index);
+    }
 }

@@ -18,4 +18,11 @@ public class MethodMappingTestController {
         /* 설명: 핸들러 메소드에서 반환한 String은 응답 값이 아닌 view(html 파일 이름)이 된다. */
         return "mappingResult";     // 페이지(view)의 이름 -> mappingResult.html 을 templates 에 만들어야 함
     }
+
+    @RequestMapping(value="/menu/modify",method=RequestMethod.POST)
+    public String modifyMenu(Model model) {
+        System.out.println("/menu/modify 경로의 POST 요청 받아보기");
+        model.addAttribute("message","POST 방식의 메뉴 수정용 핸들러 메소드 호출함...");
+        return "mappingResult";
+    }
 }

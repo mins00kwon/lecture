@@ -1,6 +1,7 @@
 package com.ohgiraffers.handlermethod;
 
 import jakarta.servlet.http.HttpServletRequest;
+import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -79,6 +80,17 @@ public class FirstController {
 
         String message=modifyName+ " 메뉴의 가격을 " + modifyPrice+"원으로 변경하였습니다";
         mode.addAttribute("message", message);
+        return "first/messagePrinter";
+    }
+    /* 필기: 세 번째 방법: 파라미터 전체를 map으로 받기 */
+    @PostMapping("modify2")
+    public String modify2(Model model,
+                          @RequestParam Map<String,String> parameterMap) {
+        String modifyName=parameterMap.get("name");
+        int modifyPrice=Integer.parseInt(parameterMap.get("modifyPrice"));
+        String message=modifyName+ " 메뉴의 가격을 " + modifyPrice+"원으로 변경하였습니다";
+        model.addAttribute("message", message);
+
         return "first/messagePrinter";
     }
 }

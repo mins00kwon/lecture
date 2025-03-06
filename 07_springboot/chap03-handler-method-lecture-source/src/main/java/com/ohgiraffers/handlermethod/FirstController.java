@@ -5,9 +5,12 @@ import jakarta.servlet.http.HttpSession;
 import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
@@ -159,5 +162,17 @@ public class FirstController {
     public String logout2(SessionStatus sessionStatus) {
         sessionStatus.setComplete();
         return "first/loginResult";
+    }
+
+    @GetMapping("body")
+    public void body(){}
+
+    @PostMapping("body")
+    public void body(@RequestBody String body,
+                     @RequestHeader("content-type") String contentType,
+                     @CookieValue(value = "JSESSIONID") String sessionId) {
+        System.out.println("body = " + body);
+        System.out.println("contentType = " + contentType);
+        System.out.println("sessionId = " + sessionId);
     }
 }

@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.Locale;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -19,10 +20,21 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 *   4. 사용처: 로그인 체크, 권한 체크, 프로그램 실행 시간 계산 작업 로그 처리, 업로드 파일 사이즈 처리(리사이징), 로케일(지역) 설정 등*/
 @Component
 public class StopwatchInterceptor implements HandlerInterceptor {
+    InterCeptorTestService testService;
+
+    @Autowired
+    public StopwatchInterceptor(InterCeptorTestService testService) {
+        this.testService = testService;
+    }
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
         System.out.println("preHandle 호출함...(핸들러 메소드 이전)");
+
+        /* 설명: Service Bean에 있는 메소드 호출*/
+        testService.test();
+
         long startTime = System.currentTimeMillis();
         /* 필기: 이러면 핸들러 메서드에도 리퀘스트로 전달됨
         *   중요: 리퀘스트 객체는 계속 유지된다. */

@@ -6,3 +6,5 @@ spring:
   web:
     resources:
       static-locations: file:///Users/mk/uploadFiles/
+
+filePath: /Users/mk/uploadFiles

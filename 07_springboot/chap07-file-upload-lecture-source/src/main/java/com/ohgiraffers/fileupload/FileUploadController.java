@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class FileUploadController {
+    /* 필기: 이게 chap01에서 배웠던 그 내용임 */
+    @Value("${filePath}")
+    private String filePath;
 
     /* 설명: multipart/form-data로 넘어오는 값은 MultipartFile로 받아내야 한다*/
     @PostMapping("single-file")
@@ -26,7 +30,7 @@ public class FileUploadController {
         System.out.println("singleFileDescription = " + singleFileDescription);
 
         /* 목차: 1. 저장될 파일의 경로 설정 후 파일 저장*/
-        String filePath="/Users/mk/uploadFiles";
+//        String filePath="/Users/mk/uploadFiles";
 
         /* 목차: 2. 파일의 이름 리네임*/
         /* 설명: 사용자가 넘긴 파일의 원본이름을 확인하고 rename 해보자
@@ -76,7 +80,7 @@ public class FileUploadController {
                             @RequestParam String multiFileDescription,
                             RedirectAttributes rttr) {
 
-        String filePath="/Users/mk/uploadFiles";
+//        String filePath="/Users/mk/uploadFiles";
 
         /* 필기: DB로 보낼 파일 담을 리스트 */
         List<Map<String,String>> files=new ArrayList<>();

@@ -27,6 +27,11 @@ public class StopwatchInterceptor implements HandlerInterceptor {
         /* 필기: 이러면 핸들러 메서드에도 리퀘스트로 전달됨
         *   중요: 리퀘스트 객체는 계속 유지된다. */
         request.setAttribute("startTime", startTime);
+        Locale locale = request.getLocale();
+        System.out.println("locale = " + locale);
+        if("ko_KR".equals(locale.toString())) {
+            System.out.println("한국인이시군요");
+        }
 
         /* 질문: 이게 뭐임?? 내가 세션에 대해 잘못 이해하고 있는건가
         *   세션이 없으면 어캄?

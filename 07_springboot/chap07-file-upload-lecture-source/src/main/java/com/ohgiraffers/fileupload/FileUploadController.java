@@ -17,7 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class FileUploadController {
-    /* 필기: 이게 chap01에서 배웠던 그 내용임 */
+    /* 필기: 이게 chap01에서 배웠던 그 내용임                                                                                                                                                                                                                                                                                                                                                                                                                        */
     @Value("${filePath}")
     private String filePath;
 

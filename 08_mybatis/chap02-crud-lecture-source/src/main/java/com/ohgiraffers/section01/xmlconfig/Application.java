@@ -29,9 +29,15 @@ public class Application {
                 case 2:
                     mc.findMenuByMenuCode(inputMenuCode());
                     break;
-                case 3: break;
-                case 4: break;
-                case 5: break;
+                case 3:
+                    mc.registMenu(inputMenu());
+                    break;
+                case 4:
+                    mc.modifyMenu(inputModifyMenu());
+                    break;
+                case 5:
+                    mc.deleteMenu(inputMenuCode());
+                    break;
                 case 9:
                     System.out.println("프로그램을 종료하겠습니다.");
                     return;
@@ -41,14 +47,49 @@ public class Application {
         } while(true);
     }
 
-    /* 설명: 사용자의 입력 값을 맵 형태로 반환*/
-    /* 필기: SpringBoot의 request의 parameter 개면을 흉내낸 것 */
-    private static Map<String, String> inputMenuCode() throws IOException {
+    private static Map<String ,String> inputModifyMenu() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        System.out.print("조회할 메뉴를 입력하세요: ");
+        Map<String ,String> parameter = new HashMap<>();
+        System.out.print("수정할 메뉴의 번호를 입력해 주세요: ");
         String menuCode = br.readLine();
+        System.out.print("수정할 메뉴의 이름을 입력해 주세요: ");
+        String menuName = br.readLine();
+        System.out.print("수정할 메뉴의 가격을 입력해 주세요: ");
+        String menuPrice = br.readLine();
+
+        parameter.put("menuCode",menuCode);
+        parameter.put("menuName",menuName);
+        parameter.put("menuPrice",menuPrice);
+
+        return parameter;
+    }
+
+    private static Map<String, String> inputMenu() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("신규 메뉴의 이름을 입력해 주세요: ");
+        String menuName = sc.nextLine();
+        System.out.print("신규 메뉴의 가격을 입력해 주세요: ");
+        String menuPrice = sc.nextLine();
+        System.out.print("신규 메뉴의 카테고리 코드를 입력해 주세요: ");
+        String categoryCode = sc.nextLine();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("menuName", menuName);
+        parameter.put("menuPrice", menuPrice);
+        parameter.put("categoryCode", categoryCode);
+
+        return parameter;
+    }
+
+    /* 설명. 사용자의 입력 값을 Map<String, String> 형태로 반환(request의 parameter 개념 적용) */
+    private static Map<String, String> inputMenuCode() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("메뉴의 번호를 입력하세요: ");
+        String menuCode = sc.nextLine();
+
         Map<String, String> parameter = new HashMap<>();
         parameter.put("menuCode", menuCode);
+
         return parameter;
     }
 }

@@ -1,7 +1,6 @@
-package com.ohgiraffers.section01.xml;
+package com.ohgiraffers.mybatisspring.section01.factorybean;
 
 public class MenuDTO {
-
     private int menuCode;
     private String menuName;
     private int menuPrice;
@@ -70,4 +69,3 @@ public class MenuDTO {
                 '}';
     }
 }
-

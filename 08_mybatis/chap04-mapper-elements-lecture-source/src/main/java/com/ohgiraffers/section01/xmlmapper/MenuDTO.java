@@ -1,4 +1,4 @@
-package com.ohgiraffers.section01.xml;
+package com.ohgiraffers.section01.xmlmapper;
 
 public class MenuDTO {
 
@@ -9,6 +9,17 @@ public class MenuDTO {
     private String orderableStatus;
 
     public MenuDTO() {
+    }
+
+    @Override
+    public String toString() {
+        return "MenuDTO{" +
+                "menuCode=" + menuCode +
+                ", menuName='" + menuName + '\'' +
+                ", menuPrice=" + menuPrice +
+                ", categoryCode=" + categoryCode +
+                ", orderableStatus='" + orderableStatus + '\'' +
+                '}';
     }
 
     public MenuDTO(int menuCode, String menuName, int menuPrice, int categoryCode, String orderableStatus) {
@@ -59,15 +70,4 @@ public class MenuDTO {
         this.orderableStatus = orderableStatus;
     }
 
-    @Override
-    public String toString() {
-        return "MenuDTO{" +
-                "menuCode=" + menuCode +
-                ", menuName='" + menuName + '\'' +
-                ", menuPrice=" + menuPrice +
-                ", categoryCode=" + categoryCode +
-                ", orderableStatus='" + orderableStatus + '\'' +
-                '}';
-    }
 }
-

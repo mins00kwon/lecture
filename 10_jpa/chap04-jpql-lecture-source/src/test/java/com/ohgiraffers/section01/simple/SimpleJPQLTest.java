@@ -73,4 +73,13 @@ public class SimpleJPQLTest {
 
         Assertions.assertTrue(!foundMenuList.isEmpty());
     }
+
+    @Test
+    public void distinct를_활용한_중복제거_여러_행_조회_테스트(){
+        String jpql = "SELECT DISTINCT m.categoryCode FROM menu_section01 m";
+        TypedQuery<Integer> query=entityManager.createQuery(jpql, Integer.class);
+        List<Integer> categoryCodeList=query.getResultList();
+        categoryCodeList.forEach(System.out::println);
+        Assertions.assertTrue(!categoryCodeList.isEmpty());
+    }
 }

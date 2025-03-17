@@ -2,6 +2,7 @@ package com.ohgiraffers.section01.simple;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.TypedQuery;
 import org.junit.jupiter.api.*;
 public class SimpleJPQLTest {
     private static EntityManagerFactory entityManagerFactory;
@@ -26,5 +27,14 @@ public class SimpleJPQLTest {
     @AfterEach
     public void closeManager() {
         entityManager.close();
+    }
+
+    @Test
+    public void TypedQuery를_이용한_단일행_단일열_조회_테스트(){
+        String jpql = "SELECT menuName FROM menu_section01 WHERE menuCode=7";
+        TypedQuery<String> query = entityManager.createQuery(jpql, String.class);
+        String resultMenuName=query.getSingleResult();
+        System.out.println("resultMenuName = " + resultMenuName);
+        Assertions.assertEquals("민트미역국", resultMenuName);
     }
 }

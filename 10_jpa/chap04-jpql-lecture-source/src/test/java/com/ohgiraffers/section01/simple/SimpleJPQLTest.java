@@ -82,4 +82,14 @@ public class SimpleJPQLTest {
         categoryCodeList.forEach(System.out::println);
         Assertions.assertTrue(!categoryCodeList.isEmpty());
     }
+
+    @Test
+    public void in_연산자를_활용한_조회_테스트(){
+        String jpql="SELECT m FROM menu_section01 m where m.categoryCode in(6,10)";
+        List<Menu> menuList=entityManager.createQuery(jpql, Menu.class).getResultList();
+        menuList.forEach(System.out::println);
+        Assertions.assertTrue(!menuList.isEmpty());
+    }
+
+    @
 }

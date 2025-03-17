@@ -91,5 +91,11 @@ public class SimpleJPQLTest {
         Assertions.assertTrue(!menuList.isEmpty());
     }
 
-    @
+    @Test
+    public void like_연산자를_활용한_조회_테스트(){
+        String jpql="SELECT m FROM menu_section01 m where m.menuName like '%밥%'";
+        List<Menu> menuList=entityManager.createQuery(jpql, Menu.class).getResultList();
+        menuList.forEach(System.out::println);
+        Assertions.assertTrue(!menuList.isEmpty());
+    }
 }

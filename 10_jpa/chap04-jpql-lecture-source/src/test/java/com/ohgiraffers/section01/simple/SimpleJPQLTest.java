@@ -50,8 +50,9 @@ public class SimpleJPQLTest {
         Assertions.assertEquals("민트미역국", resultMenuName);
     }
 
+    /* 설명: JPQL을 통해 일부분의 조회 결과 컬럼을 받아내는 것을 projection이라고 한다*/
     @Test
-    public void Query를_이용한_단일행_다중영ㄹ_조회_테스트(){
+    public void Query를_이용한_단일행_다중열_조회_테스트(){
         String jpql = "SELECT m.menuName, m.menuPrice FROM menu_section01 m WHERE menuCode=7";
         Query query=entityManager.createQuery(jpql);
         List<Object[]> resultColumns=query.getResultList();
@@ -60,5 +61,16 @@ public class SimpleJPQLTest {
 
         Assertions.assertTrue(resultRow[0] instanceof String);
         Assertions.assertTrue(resultRow[1] instanceof Integer);
+    }
+
+    @Test
+    public void TypedQuery를_이용한_다중행_다중열_조회_테스트(){
+        String jpql = "SELECT m FROM menu_section01 m";
+        TypedQuery<Menu> query=entityManager.createQuery(jpql, Menu.class);
+
+        List<Menu> foundMenuList=query.getResultList();
+        foundMenuList.forEach(System.out::println);
+
+        Assertions.assertTrue(!foundMenuList.isEmpty());
     }
 }

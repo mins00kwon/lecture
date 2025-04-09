@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="step01">
+        <h5>다중 속성 바인딩222333</h5>
+        <div>{{multiAttr}}</div>
+    </div>
+    <!-- <script>console.log(Vue)</script> -->
+    <script>
+        const {createApp, ref}=Vue;
+        createApp({
+            setup(){
+                const multiAttr=ref('multiId');
+
+                return{
+                    multiAttr
+                }
+            }
+        }).mount('#step01');
+    </script>
+</body>
+</html>

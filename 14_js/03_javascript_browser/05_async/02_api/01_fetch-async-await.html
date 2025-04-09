@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function callAPI(){
+            const promise=fetch('https://jsonplaceholder.typicode.com/users');
+            // console.log(promise)
+
+            // const response=await promise;
+            // console.log(response);
+
+            // const jsonPromise=response.json();
+            // console.log(jsonPromise);
+
+            // const result=await jsonPromise;
+            // console.log(result);
+            // console.log(result[2].username);
+
+            // 1. fetch의 결과인 promise를 then 메소드 활용
+            promise.then(response=>{
+                console.log('then을 통한 fetch 이후 promise의 결과: ', response)
+            });
+
+            // 2. async await를 활용
+            const response=await promise;
+            console.log('await를 통한 fetch 이후 promise의 결과: ',response);
+
+            // 3. fetch의 결과로 돌아온 response 응용하기
+            // 3-1. status
+            console.log(`응답 상태: ${response.status}`);
+            // 3-2. headers
+            console.log(`응답 헤더: ${response.headers}`);
+
+            const headerIterator=response.headers[Symbol.iterator]();
+            let headerEntry=headeriterator.next();
+            console.log(headerEntry.value);
+
+            while(!headerEntry.done){
+                const[key,value]=headerEntry.value;
+                console.log(`${key}: ${value}`);
+                headerEntry=headerIterator.next();
+            }
+        }
+    </script>
+    
+</body>
+</html>

@@ -18,17 +18,20 @@
             직접 사용자 정의형 이벤트인 toggle과 함께 toggleDarkMode라는 이벤트 핸들러 함수를 물려줌
         -->
         <DarkMode @toggle="toggleDarkMode"/>    <!-- 사용자 정의형 이벤트에 함수를 담아서 물려준다 -->
+        <ReadProps :readValue="readValue"/>
     </div>
 </template>
 
 <script setup>
     import PropsChild from './PropsChild.vue';
     import DarkMode from './DarkMode.vue';
+    import ReadProps from './ReadProps.vue';
 
     import {ref} from 'vue';
 
     const message2=ref('hello');
     const darkState=ref(false);
+    const readValue=ref('vue는 재밌다');
 
     function toggleDarkMode(){
         darkState.value=!darkState.value;

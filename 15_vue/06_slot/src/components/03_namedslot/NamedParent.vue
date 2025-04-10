@@ -1,6 +1,10 @@
 <template>
     <div class="container">
         <h1>NamedSlot</h1>
+
+<!-- v-slot은 부모가 가진 데이터(또는 태그)를 자식 컴포넌트에게 다양한 이름으로 전달할 수 있다 -->
+<!-- v-bind: => :, v-on: -> @, v-lost: => # -->
+
         <NamedChild>
             <!-- v-slot은 #으로 대체 가능하다 -->
             <template v-slot:name>

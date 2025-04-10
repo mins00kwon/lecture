@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="step01">
+        <h5>다중 속성 바인딩</h5>
+        <!-- v-bind를 생략하지 않고 반응형 변수 안의 객체 프로퍼티가 태그의 어트리뷰트로 바로 적용하는것도 가능-->
+        <div v-bind="multiAttr">{{ multiAttr }}</div>
+    </div>
+
+    <script>
+        const {createApp, ref}=Vue;
+        const vid=createApp({
+            setup(){
+                const multiAttr=ref({
+                    id:'multiId',
+                    class:'multiClass',
+                    value: 'multiValue'
+                });
+                const func=()=>{
+                    console.log(multi)
+                }
+                return{
+                    multiAttr
+                }
+            }
+        }).mount('#step01');
+        const el = document.getElementById("multiId");
+        console.log(el); // 해당 <div> 엘리먼트가 출력돼
+
+    </script>
+</body>
+</html>
